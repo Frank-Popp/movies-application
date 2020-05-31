@@ -120,10 +120,6 @@ $('#deleteMovie').on('click', () =>{
 
 
 
-// function input(editTitle, editRating){
-//     // $('#userEditMovie').val()
-// }
-
 
 
 
