@@ -22,9 +22,9 @@ const editOptions = {
 }
 
 //------------delete movies---------------------
-// const delOptions = {
-//   method: 'DELETE',
-// }
+const delOptions = {
+  method: 'DELETE',
+}
 
 module.exports = {
   getMovies: () => {
@@ -40,12 +40,17 @@ module.exports = {
 
   },
 
-  editMovie: (editMovie, targetId) => {
-    options.body = JSON.stringify(editMovie);
-      return fetch('/api/movies/' + targetId, editOptions)
+  editMovie: (title, rating, Id) => {
+    editOptions.body = JSON.stringify({title, rating});
+      return fetch('/api/movies/' + Id, editOptions)
           .then(response => response.json());
       //   .then(response => console.log(response.json()))
     },
+
+  delMovie: (Id) => {
+    return fetch('/api/movies/' + Id, delOptions)
+        .then(response => response.json())
+  }
 
 
 };

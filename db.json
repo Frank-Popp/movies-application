@@ -1,15 +1,24 @@
 {
   "movies": [
     {
+      "title": "Star Wars: Return of The Jedi",
+      "rating": "5",
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
+      "title": "Lethal Weapon II",
       "rating": "5",
       "id": 2
     },
     {
-      "id": 3
+      "title": "Lethal Weapon IV",
+      "rating": "5",
+      "id": 4
+    },
+    {
+      "title": "Test 2",
+      "rating": "3",
+      "id": 5
     }
   ]
 }
