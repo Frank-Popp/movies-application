@@ -1,29 +1,19 @@
 {
   "movies": [
     {
-      "title": "Star Wars: Hopeless",
-      "rating": "2",
-      "id": 1
-    },
-    {
-      "title": "",
-      "rating": "",
-      "id": 6
+      "title": "Star Wars: Return of The Jedi",
+      "rating": "5",
+      "id": 2
     },
     {
       "title": "The Lion King",
       "rating": "5",
-      "id": 7
+      "id": 3
     },
     {
-      "title": "Test 7",
-      "rating": "2",
-      "id": 8
-    },
-    {
-      "title": "mic check",
-      "rating": "1",
-      "id": 9
+      "title": "Swordfish",
+      "rating": "5",
+      "id": 4
     }
   ]
 }
