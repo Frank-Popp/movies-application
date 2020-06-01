@@ -7,6 +7,9 @@ const {delMovie} = require('./api.js');
 
 
 function renderMovies(movies){
+    $('#loadingDiv').hide();
+    $('h1').html("Movies and Their Ratings");
+
   var html = "";
   movies.forEach(({title, rating, id}) => {
     // $('#movieList').empty(); //#1
@@ -36,19 +39,7 @@ $('#submitAddMovie').click(() => {
     // console.log('test')
     let title = $('#userAddMovie').val();
     let rating = $('#userRatingInput').val();
-    // console.log(title, rating);
-    // let createMovie = (userAddMovie, userRatingInput) => {
-    //    if ($('#userAddMovie').val() === undefined) {
-    //         alert('please enter a move title');
-    //         // $('.msg').html("please a movie title.")
-    //         //
-    //         // setTimeout(function () {
-    //         //     $('.msg').remove();
-    //         // }, 3000);
-    //     } else {
-    //         return newMovie;
-    //     }
-    // load();
+    load();
         addMovie({title, rating})
             .then(getMovies)
             .then((movies) => renderMovies(movies))
@@ -80,32 +71,47 @@ $('#movieList').on('click', 'h3', function(e) {
 
 //Submit Edited Movie
 $('#editMovie').on('click', () => {
-    // $("#coverScreen").show();
+    load();
 
     let title = $('#userEditMovie').val();
     let rating = $('#userEditRating').val();
   editMovie(title, rating, Id)
         .then(getMovies)
         .then((movies) => renderMovies(movies));
+
     $('#editMovieForm').trigger("reset");
 
 })
 
 $('#deleteMovie').on('click', () =>{
+    load();
     delMovie(Id)
         .then(getMovies)
         .then((movies) => renderMovies(movies));
     $('#editMovieForm').trigger("reset");
 })
 
+load();
+
 //Loading Message
-// function load() {
-//     $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
-//     $(window).on('load', function () {
-//         $("#loadingDiv").hide();
-//         setTimeout(removeLoader, 8000); //wait for page load PLUS two seconds.
-//     });
+// function loader() {
+//     $(this).addClass('button_loader').attr("value", "");
+//     window.setTimeout(function () {
+//         $('#submit').removeClass('button_loader').attr("value", "\u2713");
+//         $('#submit').prop('disabled', true);
+//     }, 8000);
 // }
+
+
+function load() {
+     $('h1').html("Loading...");
+    $('#loadingDiv').show();
+    $('#loadingDiv').addClass('button_loader').attr("value", "");
+    window.setTimeout(function () {
+        $('#loadingDiv').removeClass('button_loader').attr("value", "\u2713");
+        $('#loadingDiv').prop('disabled', true);
+    }, 2000);
+}
     //Working on getting this to trigger while submitting a request
 //     function editLoad() {
 //         $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
