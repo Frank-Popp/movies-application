@@ -6,14 +6,44 @@
     <link rel="stylesheet" href="./style.css" >
 </head>
 <body>
-<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>
 <!--    <div id="loading"></div>-->
+<!-- Loader 1-->
+<!--<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>-->
+
+<!-- Loader 2-->
+<!--<div class="lds-grid" id="loadingDiv"><div></div><div></div><div></div><div></div><div></div>-->
+<!--<div style=""  class="lds-grid" id="loadingDiv"><div class="lds-grid">Loading...</div></div>-->
+
+
+
+
     <div class="container">
         <h1>Movies and their ratings</h1>
         <p>Welcome to our Movie page. You may add movies and a rating.  You may also edit an existing movie as well as delete a movie from this list.  </p>
-        <div class="d-flex" id="movieList"></div>
+        <div class="d-flex" id="movieList">
+
+<!--            Loader 4  -->
+<!--            <div id="coverScreen"  class="LockOn"></div>-->
+
+            <!-- Loader 3 -->
+<!--            <div class="sk-fading-circle space" id="loadingDiv">Loader Working-->
+<!--                <div class="sk-circle1 sk-circle"></div>-->
+<!--                <div class="sk-circle2 sk-circle"></div>-->
+<!--                <div class="sk-circle3 sk-circle"></div>-->
+<!--                <div class="sk-circle4 sk-circle"></div>-->
+<!--                <div class="sk-circle5 sk-circle"></div>-->
+<!--                <div class="sk-circle6 sk-circle"></div>-->
+<!--                <div class="sk-circle7 sk-circle"></div>-->
+<!--                <div class="sk-circle8 sk-circle"></div>-->
+<!--                <div class="sk-circle9 sk-circle"></div>-->
+<!--                <div class="sk-circle10 sk-circle"></div>-->
+<!--                <div class="sk-circle11 sk-circle"></div>-->
+<!--                <div class="sk-circle12 sk-circle"></div>-->
+<!--            </div>-->
+        </div>
         <div></div>
     </div>
+
 <!--        maybe we can add a function that takes in a rating for each movie and averages it out?-->
 <!--Allow users to add new movies
 
@@ -29,6 +59,7 @@ Delete movies
 Each movie should have a "delete" button
 When this button is clicked, your javascript should send a DELETE request
 -->
+
 
 <!--    first form---------------->
     <div class="msg"></div>
@@ -61,6 +92,8 @@ When this button is clicked, your javascript should send a DELETE request
     <button id="deleteMovie">Remove Movie</button>
 </div>
 
+<!--             Loader 5  -->
+<div class="modal"><!-- Place at bottom of page --></div>
 
 
 
