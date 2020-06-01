@@ -7,9 +7,6 @@ const {delMovie} = require('./api.js');
 
 
 function renderMovies(movies){
-      let loader = `<div id="loadingDiv"></div>`;
-     $('#movieList').html(loader);
-
   var html = "";
   movies.forEach(({title, rating, id}) => {
     // $('#movieList').empty(); //#1
@@ -23,9 +20,11 @@ function renderMovies(movies){
                 </div>
             </div>`;
         $('#movieList').html(html);
+
     // $('#movieList').append(html); #1
 
   })
+
 }
 
 getMovies().then((movies) => renderMovies(movies)).catch((error) => {
@@ -34,8 +33,6 @@ getMovies().then((movies) => renderMovies(movies)).catch((error) => {
 });
 
 $('#submitAddMovie').click(() => {
-    // load();
-
     // console.log('test')
     let title = $('#userAddMovie').val();
     let rating = $('#userRatingInput').val();
@@ -51,18 +48,18 @@ $('#submitAddMovie').click(() => {
     //     } else {
     //         return newMovie;
     //     }
-
+    // load();
         addMovie({title, rating})
             .then(getMovies)
             .then((movies) => renderMovies(movies))
+
     $('#addMovieForm').trigger("reset");
-        // removeLoader();
+    // removeLoader();
 })
 
 
 //Global Id variable to pass our targetId from one code to the next
 var Id;
-
 //Target Id and values to be edited...
 $('#movieList').on('click', 'h3', function(e) {
     e.stopImmediatePropagation();
@@ -70,7 +67,7 @@ $('#movieList').on('click', 'h3', function(e) {
     let editTitle = $(e.target).data('title');
     let editRating = $(e.target).data('rating');
     let targetId = $(e.target).data('id');
-    console.log($(e.target).data('id'));
+    // console.log($(e.target).data('id'));
 
     //Populate Edit Form
   $('#userEditMovie').val(editTitle);
@@ -83,14 +80,15 @@ $('#movieList').on('click', 'h3', function(e) {
 
 //Submit Edited Movie
 $('#editMovie').on('click', () => {
-    // load();
+    // $("#coverScreen").show();
+
     let title = $('#userEditMovie').val();
     let rating = $('#userEditRating').val();
   editMovie(title, rating, Id)
         .then(getMovies)
         .then((movies) => renderMovies(movies));
     $('#editMovieForm').trigger("reset");
-    removeLoader();
+
 })
 
 $('#deleteMovie').on('click', () =>{
@@ -104,8 +102,17 @@ $('#deleteMovie').on('click', () =>{
 // function load() {
 //     $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
 //     $(window).on('load', function () {
-//         setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
+//         $("#loadingDiv").hide();
+//         setTimeout(removeLoader, 8000); //wait for page load PLUS two seconds.
 //     });
+// }
+    //Working on getting this to trigger while submitting a request
+//     function editLoad() {
+//         $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
+//         $( window).on('load', function () {
+//             $("#loadingDiv").hide();
+//             setTimeout(removeLoader, 3000); //wait for page load PLUS two seconds.
+//         });
 // }
 //     function removeLoader() {
 //         $("#loadingDiv").fadeOut(500, function () {
@@ -113,11 +120,22 @@ $('#deleteMovie').on('click', () =>{
 //             $("#loadingDiv").remove(); //makes page more lightweight
 //         });
 //     }
+
+
+//====== Loader 4 ======
+
+// $(window).on('load', function () {
+//     $("#coverScreen").hide();
+// });
+
+//====== Loader 5 ======
+
+// $body = $("body");
 //
-// load();
-// removeLoader();
-
-
+// $(document).on({
+//     ajaxStart: function() { $body.addClass("loading");    },
+//     ajaxStop: function() { $body.removeClass("loading"); }
+// });
 
 
 
